@@ -33,26 +33,11 @@ jobs:
           path: Pods
           submodules: true
 
-      - name: Initialize Submodules
-        run: make dependencies
-
       - name: Setup Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby
         with:
-          ruby-version: 2.6
-
-      - name: Cache Bundle Install
-        uses: actions/cache@v1
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-
-      - name: Bundle Install
-        run: |
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
+          ruby-version: .ruby-version
+          bundler-cache: true
 
       - name: Build and Test
         run: |
