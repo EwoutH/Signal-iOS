@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
+        with:
+          submodules: true
 
       - name: Initialize workflow variables
         id: vars
@@ -31,9 +33,6 @@ jobs:
           repository: signalapp/signal-pods-private
           token: ${{ secrets.ACCESS_TOKEN }}
           path: Pods
-
-      - name: Initialize Submodules
-        run: make dependencies
 
       - name: Setup Ruby
         uses: actions/setup-ruby@v1 # uses .ruby-version by default
