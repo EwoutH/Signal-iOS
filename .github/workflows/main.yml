@@ -34,7 +34,7 @@ jobs:
           submodules: true
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
