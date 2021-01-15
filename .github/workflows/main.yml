@@ -35,7 +35,7 @@ jobs:
           path: Pods
 
       - name: Setup Ruby
-        uses: actions/setup-ruby@v1 # uses .ruby-version by default
+        uses: ruby/setup-ruby@v1 # uses .ruby-version by default
 
       - name: Cache Bundle Install
         uses: actions/cache@v1
