@@ -36,9 +36,7 @@ jobs:
         run: make dependencies
 
       - name: Setup Ruby
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: 2.7
+        uses: actions/setup-ruby@v1 # uses .ruby-version by default
 
       - name: Cache Bundle Install
         uses: actions/cache@v1
